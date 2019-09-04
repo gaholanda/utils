@@ -1,5 +1,6 @@
 /*
   Normaliza uma string e retira os caracteres especiais
+  Autor: @brunomacedo
 */
 
 const normalizeString = (_str) => {

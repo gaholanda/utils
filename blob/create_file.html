@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blob - Criar arquivo</title>
+</head>
+
+<body>
+  <a id="download" href="#" style="max-width: 150px; margin: auto;">Baixar Sitemap</a>
+  <script>
+
+    const createFile = (el, text, name, type, ext) => {
+      let file = new Blob([text], { type: type });
+
+      if (window.navigator && window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveBlob(file, name + ext);
+      } else {
+        el.href = URL.createObjectURL(file);
+      }
+
+      el.download = name + ext;
+    }
+
+    createFile(
+      document.querySelector('#download'),
+      'Hello',
+      'Hello',
+      'text/xml',
+      '.txt'
+    )
+
+  </script>
+</body>
+
+</html>
